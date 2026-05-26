@@ -137,23 +137,51 @@ body, html {
    ========================================================================== */
 
 
-/* Resmin üzerindeki başlıkların okunabilmesi için koyuluk katmanı */
+/* .hero-overlay alanını bu şekilde güncelleyin */
 .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 45vh;
   background-color: rgba(0, 0, 0, 0.4); 
+  
   display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
+  text-align: center;
+  
+  padding: 120px 20px 40px 20px; 
+  box-sizing: border-box;
 }
 
-.hero-overlay h1 {
+/* YENİ VE KESİN ÇÖZÜM: Yazıları içine alacak özel güvenli alan */
+.hero-text-container {
+  width: 100%;
+  max-width: 800px; /* Yazının satır genişliği en fazla bu kadar olabilir, sonra aşağı iner */
+  margin: 0 auto;
+  display: block; /* Flex yapısını kırıp normal blok düzenine geçirir */
+  box-sizing: border-box;
+  
+  /* Taşmayı engelleyen kesin komutlar */
+  white-space: normal !important; 
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important; 
+}
+
+/* Bu alanın içindeki tüm yazı elementleri alt satıra geçmeye zorlanır */
+.hero-text-container h1, 
+.hero-text-container p, 
+.hero-text-container span {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.hero-text-container h1 {
   font-size: 2.8rem;
   color: white;
-  margin: 0;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
