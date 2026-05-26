@@ -119,20 +119,33 @@ body, html {
    YENİ YAPI: İKİ BÖLÜMLÜ SAYFA DÜZENİ (BANNER & İÇERİK)
    ========================================================================== */
 
-/* 1. KISIM: Üst Arka Plan Resim Alanı (Hero Banner) */
+/* 1. KISIM: Üst Arka Plan Ortak Ayarları (Resim yolunu buradan kaldırdık) */
 .hero-section {
   height: 45vh; /* Ekran yüksekliğinin %45'ini kaplar */
   min-height: 300px;
-  background-image: url('images/anasayfabg.png'); /* Ana sayfa için arka plan resmi */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-/* Oyun sayfasına özel farklı resim göstermek için */
+/* ==========================================================================
+   SAYFALARA ÖZEL BANNER GÖRSELLERİ
+   ========================================================================== */
+
+/* Ana Sayfa Banner Resmi */
+.home-hero {
+  background-image: url('images/anasayfabg.png');
+}
+
+/* Oyun Sayfası Banner Resmi */
 .oyun-hero {
-  background-image: url('images/anasayfabg.png'); 
+  background-image: url('oyun/images/oyunbg.jpg');
+}
+
+/* Oyunlar Alt Sayfası Banner Resmi */
+.oyunlar-hero {
+  background-image: url('images/oyunlar-banner.jpg'); /* Farklı bir görsel ismi */
 }
 
 /* Resmin üzerindeki başlıkların okunabilmesi için koyuluk katmanı */
