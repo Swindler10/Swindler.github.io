@@ -268,3 +268,338 @@ body, html {
   background-color: #f5f5f5 !important;
   color: #000 !important;
 }
+
+/* ==========================================================================
+   BANNER İÇİ ÜÇLÜ MARKA VE OYUN KOLU DÜZENİ
+   ========================================================================== */
+
+/* Üç elemanı yan yana dizen ve ekrana sığmayınca alt satıra geçiren ana kutu */
+.brand-showcase-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px; /* Elemanların arasındaki yatay mesafe */
+  width: 100%;
+  max-width: 1100px;
+  flex-wrap: wrap; /* Küçük ekranlarda otomatik alt alta inerler, sağa taşmazlar */
+  margin: 0 auto;
+}
+
+/* Her bir logonun / kolun ortak özellikleri ve hover geçiş yumuşaklığı */
+.brand-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Yaylanma efekti */
+  text-decoration: none;
+}
+
+/* Steam ve Epic Görsellerinin Boyut Ayarları */
+.steam-item img, 
+.epic-item img {
+  width: 120px;   /* Logoların büyüklüğü */
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6)); /* Arka plana gölge efekti */
+}
+
+/* Mouse Üzerine Geldiğinde Logoların Büyüme Efekti */
+.steam-item:hover, 
+.epic-item:hover {
+  transform: scale(1.18); /* %18 oranında büyür */
+}
+
+/* ==========================================================================
+   SENİN YAZDIĞIN OYUN KOLU (GAMEPAD) TASARIM KODLARI
+   ========================================================================== */
+.brand-item .ana {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  width: 332.5px;
+  height: 150px;
+  border-radius: 200px;
+  transform: scale(1); /* Sayfa içi çakışmayı önlemek için ana boyutu 1 yaptık */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Mouse kola geldiğinde tetiklenecek büyüme */
+.controller-item:hover .ana {
+  transform: scale(1.12); /* Diğer logolarla dengeli büyümesi için ideal oran */
+}
+
+.dıs1 {
+  background-color: red;
+  border-radius: 200px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 15px 2px 3px black;
+  z-index: 2;
+}
+
+.dıs2 {
+  background-color: red;
+  border-radius: 200px;
+  width: 150px;
+  height: 150px;
+  margin-left: 20px;
+  box-shadow: 15px 2px 3px black;
+  z-index: 2;
+}
+
+.dıs3 {
+  position: absolute;
+  background-color: red;
+  width: 170px;
+  height: 120px;
+  left: 75px;
+  box-shadow: 0 5px 3px black;
+  z-index: 1;
+}
+
+.dıs4 {
+  position: absolute;
+  background-color: red;
+  width: 170px;
+  height: 120px;
+  left: 75px;
+  z-index: 2;
+}
+
+.iç1 {
+  position: absolute;
+  background-color: black;
+  border-radius: 200px;
+  width: 125px;
+  height: 125px;
+  z-index: 3;
+  margin-left: 10px;
+  top: 12.5px;
+  box-shadow: 0 0 10px black;
+}
+
+.iç2 {
+  position: absolute;
+  background-color: black;
+  border-radius: 200px;
+  width: 125px;
+  height: 125px;
+  z-index: 3;
+  margin-left: 175px;
+  top: 12.5px;
+  box-shadow: 0 0 15px black;
+}
+
+.iç3 {
+  position: absolute;
+  background-color: black;
+  width: 155px;
+  height: 95px;
+  left: 75px;
+  box-shadow: 0 0 15px black;
+  z-index: 3;
+  top: 12.5px;
+}
+
+.tuş1 {
+  position: absolute;
+  background-color: red;
+  border-radius: 7px;
+  width: 22px;
+  height: 70px;
+  left: 58px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 40px;
+}
+
+.tuş2 {
+  position: absolute;
+  background-color: red;
+  border-radius: 10px;
+  width: 65px;
+  height: 25px;
+  left: 37px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 62.5px;
+}
+
+.tuş3 {
+  position: absolute;
+  background-color: red;
+  border-radius: 7px;
+  width: 22px;
+  height: 70px;
+  left: 58px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 40px;
+}
+
+.tuş4 {
+  position: absolute;
+  background-color: red;
+  border-radius: 10px;
+  width: 65px;
+  height: 25px;
+  left: 37px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 62.5px;
+}
+
+.tuş5 {
+  position: absolute;
+  background-color: red;
+  border-radius: 7px;
+  width: 22px;
+  height: 70px;
+  left: 58px;
+  z-index: 6;
+  top: 40px;
+}
+
+.button1 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 223px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 37.5px;
+}
+
+.button11 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 223px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 37.5px;
+}
+
+.button2 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 223px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 87.5px;
+}
+
+.button21 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 223px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 87.5px;
+}
+
+.button3 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 198px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 62.5px;
+}
+
+.button31 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 198px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 62.5px;
+}
+
+.button4 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 248px;
+  box-shadow: 5px 2px 8px red;
+  z-index: 4;
+  top: 62.5px;
+}
+
+.button41 {
+  position: absolute;
+  background-color: red;
+  border-radius: 200px;
+  width: 25px;
+  height: 25px;
+  left: 248px;
+  box-shadow: 4px 2px 8px black;
+  z-index: 5;
+  top: 62.5px;
+}
+
+.orta1 {
+  position: absolute;
+  background-color: red;
+  border-radius: 5px;
+  width: 28px;
+  height: 10px;
+  left: 119px;
+  box-shadow: 4px 2px 8px red;
+  z-index: 4;
+  top: 42px;
+}
+
+.orta11 {
+  position: absolute;
+  background-color: red;
+  border-radius: 5px;
+  width: 28px;
+  height: 10px;
+  left: 119px;
+  box-shadow: 3px 2px 8px black;
+  z-index: 5;
+  top: 42px;
+}
+
+.orta2 {
+  position: absolute;
+  background-color: red;
+  border-radius: 5px;
+  width: 28px;
+  height: 10px;
+  left: 158px;
+  box-shadow: 4px 2px 8px red;
+  z-index: 4;
+  top: 42px;
+}
+
+.orta21 {
+  position: absolute;
+  background-color: red;
+  border-radius: 5px;
+  width: 28px;
+  height: 10px;
+  left: 158px;
+  box-shadow: 3px 2px 8px black;
+  z-index: 5;
+  top: 42px;
+}
