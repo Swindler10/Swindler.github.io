@@ -1,0 +1,270 @@
+/* Genel Sıfırlama */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212; /* Sitenin ana koyu arka planı */
+  color: white;
+}
+
+/* Navbar Temel Özellikleri (Saydam Hali) */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+/* Kaydırıldığında Navbar'ın Alacağı Özellikler (Beyaz Hali) */
+#navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 10px 40px;
+}
+
+/* Sol Kısım (Logo ve İsim) */
+.nav-left .logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white; 
+  transition: color 0.3s ease;
+}
+
+#navbar.scrolled .nav-left .logo-link {
+  color: #000;
+}
+
+.logo-link img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Sağ Kısım (Linkler) */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.nav-links .arrow {
+  font-size: 0.7rem;
+  margin-left: 3px;
+}
+
+#navbar.scrolled .nav-links li a {
+  color: #333;
+}
+
+/* Aktif Sayfa Buton Tasarımı */
+.nav-links li a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#navbar.scrolled .nav-links li a.active {
+  background-color: #222;
+  color: white;
+}
+
+/* Hover Efektleri */
+.nav-links li a:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#navbar.scrolled .nav-links li a:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+/* Arama İkonu Resmi */
+.search-img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  transition: filter 0.3s ease;
+}
+
+#navbar.scrolled .search-img {
+  filter: invert(1); 
+}
+
+/* ==========================================================================
+   YENİ YAPI: İKİ BÖLÜMLÜ SAYFA DÜZENİ (BANNER & İÇERİK)
+   ========================================================================== */
+
+/* 1. KISIM: Üst Arka Plan Ortak Ayarları */
+.hero-section {
+  min-height: 45vh; /* İçerik yoksa eski boyutunda sabit kalır */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex; 
+  /* Arka plan resmi yüklenene kadar veya resim bulunamazsa 
+     arkası boş kalmasın diye varsayılan koyu bir renk bırakabilirsin: */
+  background-color: #1a1a1a; 
+}
+
+/* ==========================================================================
+   SAYFALARA ÖZEL BANNER GÖRSELLERİ
+   ========================================================================== */
+
+
+/* .hero-overlay alanını bu şekilde güncelleyin */
+.hero-overlay {
+  width: 100%;
+  min-height: 45vh;
+  background-color: rgba(0, 0, 0, 0.4); 
+  
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  padding: 120px 20px 40px 20px; 
+  box-sizing: border-box;
+}
+
+/* YENİ VE KESİN ÇÖZÜM: Yazıları içine alacak özel güvenli alan */
+.hero-text-container {
+  width: 100%;
+  max-width: 800px; /* Yazının satır genişliği en fazla bu kadar olabilir, sonra aşağı iner */
+  margin: 0 auto;
+  display: block; /* Flex yapısını kırıp normal blok düzenine geçirir */
+  box-sizing: border-box;
+  
+  /* Taşmayı engelleyen kesin komutlar */
+  white-space: normal !important; 
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important; 
+}
+
+/* Bu alanın içindeki tüm yazı elementleri alt satıra geçmeye zorlanır */
+.hero-text-container h1, 
+.hero-text-container p, 
+.hero-text-container span {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.hero-text-container h1 {
+  font-size: 2.8rem;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+/* 2. KISIM: Alt İçerik Alanı */
+.main-content {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* height (yükseklik) değeri vermedik; eleman eklendikçe otomatik uzayacak */
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   AÇILIR MENÜ (DROPDOWN) TASARIMI
+   ========================================================================== */
+
+/* Tetikleyici Liste Elemanı */
+.dropdown {
+  position: relative;
+}
+
+/* Alt Menü Kutusu (Genel Durum - Saydam Navbar İçi) */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Hafif aşağıdan başlama efekti */
+  background-color: #1a1a1a;
+  min-width: 150px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Sayfa Aşağı Kaydırıldığında Alt Menü Kutusu (Beyaz Navbar İçi) */
+#navbar.scrolled .dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+}
+
+/* Mouse Üzerine Geldiğinde Menüyü Göster */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Kendi orijinal konumuna gelme efekti */
+}
+
+/* Alt Menü İçindeki Linklerin Şekillendirilmesi */
+.nav-links .dropdown-menu li {
+  width: 100%;
+}
+
+.nav-links .dropdown-menu li a {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  color: white !important; /* Arka plan koyuyken yazılar beyaz */
+  background-color: transparent !important;
+}
+
+/* Beyaz Navbar Aktifken Alt Menü Link Renkleri */
+#navbar.scrolled .nav-links .dropdown-menu li a {
+  color: #333 !important; /* Arka plan beyazken yazılar koyu gri */
+}
+
+/* Alt Menü İçindeki Linklerin Hover (Üzerine Gelme) Durumu */
+.nav-links .dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+#navbar.scrolled .nav-links .dropdown-menu li a:hover {
+  background-color: #f5f5f5 !important;
+  color: #000 !important;
+}
