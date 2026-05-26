@@ -163,3 +163,78 @@ body, html {
   /* height (yükseklik) değeri vermedik; eleman eklendikçe otomatik uzayacak */
   box-sizing: border-box;
 }
+
+/* ==========================================================================
+   AÇILIR MENÜ (DROPDOWN) TASARIMI
+   ========================================================================== */
+
+/* Tetikleyici Liste Elemanı */
+.dropdown {
+  position: relative;
+}
+
+/* Alt Menü Kutusu (Genel Durum - Saydam Navbar İçi) */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Hafif aşağıdan başlama efekti */
+  background-color: #1a1a1a;
+  min-width: 150px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Sayfa Aşağı Kaydırıldığında Alt Menü Kutusu (Beyaz Navbar İçi) */
+#navbar.scrolled .dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+}
+
+/* Mouse Üzerine Geldiğinde Menüyü Göster */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Kendi orijinal konumuna gelme efekti */
+}
+
+/* Alt Menü İçindeki Linklerin Şekillendirilmesi */
+.nav-links .dropdown-menu li {
+  width: 100%;
+}
+
+.nav-links .dropdown-menu li a {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  color: white !important; /* Arka plan koyuyken yazılar beyaz */
+  background-color: transparent !important;
+}
+
+/* Beyaz Navbar Aktifken Alt Menü Link Renkleri */
+#navbar.scrolled .nav-links .dropdown-menu li a {
+  color: #333 !important; /* Arka plan beyazken yazılar koyu gri */
+}
+
+/* Alt Menü İçindeki Linklerin Hover (Üzerine Gelme) Durumu */
+.nav-links .dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+#navbar.scrolled .nav-links .dropdown-menu li a:hover {
+  background-color: #f5f5f5 !important;
+  color: #000 !important;
+}
